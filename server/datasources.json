@@ -12,5 +12,21 @@
     "name": "mongo",
     "user": "",
     "connector": "mongodb"
+  },
+  "Email": {
+    "name": "Email",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "SMTP",
+        "host": "smtp.mailgun.org",
+        "secure": false,
+        "port": 587,
+        "auth": {
+          "user": "postmaster@sandboxcb56cbc9f1dc49f3bed18db31d7dd544.mailgun.org",
+          "pass": "7bdd996bd90f50c6b6485da75444a532-a3d67641-a2a05be2"
+        }
+      }
+    ]
   }
 }

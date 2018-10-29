@@ -15,10 +15,22 @@
       "type": "string",
       "required": true
     },
+    "password": {
+      "type": "string",
+      "required": true
+    },
+    "emailVerified": {
+      "type": "boolean",
+      "default": false
+    },
+    "verificationToken": {
+      "type": "string"
+    },
     "photo": {
       "type": "string"
     }
   },
+  "hidden": [],
   "validations": [],
   "relations": {
     "accessTokens": {

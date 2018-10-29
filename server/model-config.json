@@ -45,6 +45,13 @@
   },
   "AppUser": {
     "dataSource": "mongo",
-    "public": true
+    "public": true,
+    "options": {
+      "emailVerificationRequired": true
+    }
+  },
+  "Email": {
+    "dataSource": "Email",
+    "public": false
   }
 }
