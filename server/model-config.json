@@ -53,5 +53,9 @@
   "Email": {
     "dataSource": "Email",
     "public": false
+  },
+  "Message": {
+    "dataSource": "mongo",
+    "public": true
   }
 }

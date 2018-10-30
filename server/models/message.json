@@ -1,0 +1,40 @@
+{
+  "name": "Message",
+  "plural": "Messages",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "content": {
+      "type": "string",
+      "required": true
+    },
+    "createdAt": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "from": {
+      "type": "belongsTo",
+      "model": "AppUser",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "job": {
+      "type": "belongsTo",
+      "model": "Job",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

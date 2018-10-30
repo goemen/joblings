@@ -35,6 +35,14 @@
       "options": {
         "nestRemoting": false
       }
+    },
+    "messages": {
+      "type": "hasMany",
+      "model": "Message",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
     }
   },
   "acls": [

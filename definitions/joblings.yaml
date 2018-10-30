@@ -1,0 +1,2958 @@
+paths:
+  '/jobs/{id}/owner':
+    get:
+      tags:
+        - Job
+      summary: Fetches belongsTo relation owner.
+      operationId: Job.prototype.__get__owner
+      parameters:
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+        - name: id
+          in: path
+          description: Job id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AppUser'
+      deprecated: false
+  '/jobs/{id}/messages/{fk}':
+    get:
+      tags:
+        - Job
+      summary: Find a related item by id for messages.
+      operationId: Job.prototype.__findById__messages
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for messages
+          required: true
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: Job id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+    delete:
+      tags:
+        - Job
+      summary: Delete a related item by id for messages.
+      operationId: Job.prototype.__destroyById__messages
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for messages
+          required: true
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: Job id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - Job
+      summary: Update a related item by id for messages.
+      operationId: Job.prototype.__updateById__messages
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for messages
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Message'
+        - name: id
+          in: path
+          description: Job id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+  '/jobs/{id}/messages':
+    get:
+      tags:
+        - Job
+      summary: Queries messages of Job.
+      operationId: Job.prototype.__get__messages
+      parameters:
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: Job id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Message'
+      deprecated: false
+    post:
+      tags:
+        - Job
+      summary: Creates a new instance in messages of this model.
+      operationId: Job.prototype.__create__messages
+      parameters:
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Message'
+        - name: id
+          in: path
+          description: Job id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+    delete:
+      tags:
+        - Job
+      summary: Deletes all messages of this model.
+      operationId: Job.prototype.__delete__messages
+      parameters:
+        - name: id
+          in: path
+          description: Job id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/jobs/{id}/messages/count':
+    get:
+      tags:
+        - Job
+      summary: Counts messages of Job.
+      operationId: Job.prototype.__count__messages
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: Job id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  /jobs:
+    post:
+      tags:
+        - Job
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: Job.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Job'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Job'
+      deprecated: false
+    patch:
+      tags:
+        - Job
+      summary: Patch an existing model instance or insert a new one into the data source.
+      operationId: Job.patchOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Job'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Job'
+      deprecated: false
+    put:
+      tags:
+        - Job
+      summary: Replace an existing model instance or insert a new one into the data source.
+      operationId: Job.replaceOrCreate__put_jobs
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Job'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Job'
+      deprecated: false
+    get:
+      tags:
+        - Job
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: Job.find
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit - must be a JSON-encoded string ({"something":"value"})'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Job'
+      deprecated: false
+  /jobs/replaceOrCreate:
+    post:
+      tags:
+        - Job
+      summary: Replace an existing model instance or insert a new one into the data source.
+      operationId: Job.replaceOrCreate__post_jobs_replaceOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Job'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Job'
+      deprecated: false
+  /jobs/upsertWithWhere:
+    post:
+      tags:
+        - Job
+      summary: Update an existing model instance or insert a new one into the data source based on the where criteria.
+      operationId: Job.upsertWithWhere
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/Job'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Job'
+      deprecated: false
+  '/jobs/{id}/exists':
+    get:
+      tags:
+        - Job
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'Job.exists__get_jobs_{id}_exists'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+  '/jobs/{id}':
+    head:
+      tags:
+        - Job
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'Job.exists__head_jobs_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+    get:
+      tags:
+        - Job
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: Job.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: 'Filter defining fields and include - must be a JSON-encoded string ({"something":"value"})'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Job'
+      deprecated: false
+    put:
+      tags:
+        - Job
+      summary: Replace attributes for a model instance and persist it into the data source.
+      operationId: 'Job.replaceById__put_jobs_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Job'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Job'
+      deprecated: false
+    delete:
+      tags:
+        - Job
+      summary: 'Delete a model instance by {{id}} from the data source.'
+      operationId: Job.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    patch:
+      tags:
+        - Job
+      summary: Patch attributes for a model instance and persist it into the data source.
+      operationId: Job.prototype.patchAttributes
+      parameters:
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/Job'
+        - name: id
+          in: path
+          description: Job id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Job'
+      deprecated: false
+  '/jobs/{id}/replace':
+    post:
+      tags:
+        - Job
+      summary: Replace attributes for a model instance and persist it into the data source.
+      operationId: 'Job.replaceById__post_jobs_{id}_replace'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Job'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Job'
+      deprecated: false
+  /jobs/findOne:
+    get:
+      tags:
+        - Job
+      summary: Find first instance of the model matched by filter from the data source.
+      operationId: Job.findOne
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit - must be a JSON-encoded string ({"something":"value"})'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Job'
+      deprecated: false
+  /jobs/update:
+    post:
+      tags:
+        - Job
+      summary: 'Update instances of the model matched by {{where}} from the data source.'
+      operationId: Job.updateAll
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/Job'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: Information related to the outcome of the operation
+            type: object
+            properties:
+              count:
+                description: The number of instances updated
+                type: number
+                format: double
+      deprecated: false
+  /jobs/count:
+    get:
+      tags:
+        - Job
+      summary: Count instances of the model matched by where from the data source.
+      operationId: Job.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  '/jobs/{id}/messages/{nk}/from':
+    get:
+      tags:
+        - Job
+      summary: Fetches belongsTo relation from.
+      operationId: Job.prototype.__get__messages__from
+      parameters:
+        - name: nk
+          in: path
+          description: Foreign key for messages.
+          required: true
+          type: string
+          format: JSON
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+        - name: id
+          in: path
+          description: Job id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AppUser'
+      deprecated: false
+  '/jobs/{id}/messages/{nk}/job':
+    get:
+      tags:
+        - Job
+      summary: Fetches belongsTo relation job.
+      operationId: Job.prototype.__get__messages__job
+      parameters:
+        - name: nk
+          in: path
+          description: Foreign key for messages.
+          required: true
+          type: string
+          format: JSON
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+        - name: id
+          in: path
+          description: Job id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Job'
+      deprecated: false
+  '/AppUsers/{id}/accessTokens/{fk}':
+    get:
+      tags:
+        - AppUser
+      summary: Find a related item by id for accessTokens.
+      operationId: AppUser.prototype.__findById__accessTokens
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: AppUser id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AccessToken'
+      deprecated: false
+    delete:
+      tags:
+        - AppUser
+      summary: Delete a related item by id for accessTokens.
+      operationId: AppUser.prototype.__destroyById__accessTokens
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: AppUser id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - AppUser
+      summary: Update a related item by id for accessTokens.
+      operationId: AppUser.prototype.__updateById__accessTokens
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/AccessToken'
+        - name: id
+          in: path
+          description: AppUser id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AccessToken'
+      deprecated: false
+  '/AppUsers/{id}/jobPosts/{fk}':
+    get:
+      tags:
+        - AppUser
+      summary: Find a related item by id for jobPosts.
+      operationId: AppUser.prototype.__findById__jobPosts
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for jobPosts
+          required: true
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: AppUser id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Job'
+      deprecated: false
+    delete:
+      tags:
+        - AppUser
+      summary: Delete a related item by id for jobPosts.
+      operationId: AppUser.prototype.__destroyById__jobPosts
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for jobPosts
+          required: true
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: AppUser id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - AppUser
+      summary: Update a related item by id for jobPosts.
+      operationId: AppUser.prototype.__updateById__jobPosts
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for jobPosts
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Job'
+        - name: id
+          in: path
+          description: AppUser id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Job'
+      deprecated: false
+  '/AppUsers/{id}/messages/{fk}':
+    get:
+      tags:
+        - AppUser
+      summary: Find a related item by id for messages.
+      operationId: AppUser.prototype.__findById__messages
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for messages
+          required: true
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: AppUser id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+    delete:
+      tags:
+        - AppUser
+      summary: Delete a related item by id for messages.
+      operationId: AppUser.prototype.__destroyById__messages
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for messages
+          required: true
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: AppUser id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - AppUser
+      summary: Update a related item by id for messages.
+      operationId: AppUser.prototype.__updateById__messages
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for messages
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Message'
+        - name: id
+          in: path
+          description: AppUser id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+  '/AppUsers/{id}/accessTokens':
+    get:
+      tags:
+        - AppUser
+      summary: Queries accessTokens of AppUser.
+      operationId: AppUser.prototype.__get__accessTokens
+      parameters:
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: AppUser id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AccessToken'
+      deprecated: false
+    post:
+      tags:
+        - AppUser
+      summary: Creates a new instance in accessTokens of this model.
+      operationId: AppUser.prototype.__create__accessTokens
+      parameters:
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/AccessToken'
+        - name: id
+          in: path
+          description: AppUser id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AccessToken'
+      deprecated: false
+    delete:
+      tags:
+        - AppUser
+      summary: Deletes all accessTokens of this model.
+      operationId: AppUser.prototype.__delete__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: AppUser id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/AppUsers/{id}/accessTokens/count':
+    get:
+      tags:
+        - AppUser
+      summary: Counts accessTokens of AppUser.
+      operationId: AppUser.prototype.__count__accessTokens
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: AppUser id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  '/AppUsers/{id}/jobPosts':
+    get:
+      tags:
+        - AppUser
+      summary: Queries jobPosts of AppUser.
+      operationId: AppUser.prototype.__get__jobPosts
+      parameters:
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: AppUser id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Job'
+      deprecated: false
+    post:
+      tags:
+        - AppUser
+      summary: Creates a new instance in jobPosts of this model.
+      operationId: AppUser.prototype.__create__jobPosts
+      parameters:
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Job'
+        - name: id
+          in: path
+          description: AppUser id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Job'
+      deprecated: false
+    delete:
+      tags:
+        - AppUser
+      summary: Deletes all jobPosts of this model.
+      operationId: AppUser.prototype.__delete__jobPosts
+      parameters:
+        - name: id
+          in: path
+          description: AppUser id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/AppUsers/{id}/jobPosts/count':
+    get:
+      tags:
+        - AppUser
+      summary: Counts jobPosts of AppUser.
+      operationId: AppUser.prototype.__count__jobPosts
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: AppUser id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  '/AppUsers/{id}/messages':
+    get:
+      tags:
+        - AppUser
+      summary: Queries messages of AppUser.
+      operationId: AppUser.prototype.__get__messages
+      parameters:
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: AppUser id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Message'
+      deprecated: false
+    post:
+      tags:
+        - AppUser
+      summary: Creates a new instance in messages of this model.
+      operationId: AppUser.prototype.__create__messages
+      parameters:
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Message'
+        - name: id
+          in: path
+          description: AppUser id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+    delete:
+      tags:
+        - AppUser
+      summary: Deletes all messages of this model.
+      operationId: AppUser.prototype.__delete__messages
+      parameters:
+        - name: id
+          in: path
+          description: AppUser id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/AppUsers/{id}/messages/count':
+    get:
+      tags:
+        - AppUser
+      summary: Counts messages of AppUser.
+      operationId: AppUser.prototype.__count__messages
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: AppUser id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  /AppUsers:
+    post:
+      tags:
+        - AppUser
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: AppUser.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/AppUser'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AppUser'
+      deprecated: false
+    patch:
+      tags:
+        - AppUser
+      summary: Patch an existing model instance or insert a new one into the data source.
+      operationId: AppUser.patchOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/AppUser'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AppUser'
+      deprecated: false
+    put:
+      tags:
+        - AppUser
+      summary: Replace an existing model instance or insert a new one into the data source.
+      operationId: AppUser.replaceOrCreate__put_AppUsers
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/AppUser'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AppUser'
+      deprecated: false
+    get:
+      tags:
+        - AppUser
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: AppUser.find
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit - must be a JSON-encoded string ({"something":"value"})'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AppUser'
+      deprecated: false
+  /AppUsers/replaceOrCreate:
+    post:
+      tags:
+        - AppUser
+      summary: Replace an existing model instance or insert a new one into the data source.
+      operationId: AppUser.replaceOrCreate__post_AppUsers_replaceOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/AppUser'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AppUser'
+      deprecated: false
+  /AppUsers/upsertWithWhere:
+    post:
+      tags:
+        - AppUser
+      summary: Update an existing model instance or insert a new one into the data source based on the where criteria.
+      operationId: AppUser.upsertWithWhere
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/AppUser'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AppUser'
+      deprecated: false
+  '/AppUsers/{id}/exists':
+    get:
+      tags:
+        - AppUser
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'AppUser.exists__get_AppUsers_{id}_exists'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+  '/AppUsers/{id}':
+    head:
+      tags:
+        - AppUser
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'AppUser.exists__head_AppUsers_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+    get:
+      tags:
+        - AppUser
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: AppUser.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: 'Filter defining fields and include - must be a JSON-encoded string ({"something":"value"})'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AppUser'
+      deprecated: false
+    put:
+      tags:
+        - AppUser
+      summary: Replace attributes for a model instance and persist it into the data source.
+      operationId: 'AppUser.replaceById__put_AppUsers_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/AppUser'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AppUser'
+      deprecated: false
+    delete:
+      tags:
+        - AppUser
+      summary: 'Delete a model instance by {{id}} from the data source.'
+      operationId: AppUser.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    patch:
+      tags:
+        - AppUser
+      summary: Patch attributes for a model instance and persist it into the data source.
+      operationId: AppUser.prototype.patchAttributes
+      parameters:
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/AppUser'
+        - name: id
+          in: path
+          description: AppUser id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AppUser'
+      deprecated: false
+  '/AppUsers/{id}/replace':
+    post:
+      tags:
+        - AppUser
+      summary: Replace attributes for a model instance and persist it into the data source.
+      operationId: 'AppUser.replaceById__post_AppUsers_{id}_replace'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/AppUser'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AppUser'
+      deprecated: false
+  /AppUsers/findOne:
+    get:
+      tags:
+        - AppUser
+      summary: Find first instance of the model matched by filter from the data source.
+      operationId: AppUser.findOne
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit - must be a JSON-encoded string ({"something":"value"})'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AppUser'
+      deprecated: false
+  /AppUsers/update:
+    post:
+      tags:
+        - AppUser
+      summary: 'Update instances of the model matched by {{where}} from the data source.'
+      operationId: AppUser.updateAll
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/AppUser'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: Information related to the outcome of the operation
+            type: object
+            properties:
+              count:
+                description: The number of instances updated
+                type: number
+                format: double
+      deprecated: false
+  /AppUsers/count:
+    get:
+      tags:
+        - AppUser
+      summary: Count instances of the model matched by where from the data source.
+      operationId: AppUser.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  /AppUsers/login:
+    post:
+      tags:
+        - AppUser
+      summary: Login a user with username/email and password.
+      operationId: AppUser.login
+      parameters:
+        - name: credentials
+          in: body
+          required: true
+          schema:
+            type: object
+        - name: include
+          in: query
+          description: Related objects to include in the response. See the description of return value for more details.
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: >+
+              The response body contains properties of the AccessToken created on
+              login.
+
+              Depending on the value of `include` parameter, the body may contain
+              additional properties:
+
+
+
+
+
+
+
+                - `user` - `U+007BUserU+007D` - Data of the currently logged in
+
+              user. (`include=user`)
+
+
+            type: object
+      deprecated: false
+  /AppUsers/logout:
+    post:
+      tags:
+        - AppUser
+      summary: Logout a user with access token.
+      operationId: AppUser.logout
+      parameters: []
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/AppUsers/{id}/verify':
+    post:
+      tags:
+        - AppUser
+      summary: "Trigger user's identity verification with configured verifyOptions"
+      operationId: AppUser.prototype.verify
+      parameters:
+        - name: id
+          in: path
+          description: AppUser id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  /AppUsers/confirm:
+    get:
+      tags:
+        - AppUser
+      summary: Confirm a user registration with identity verification token.
+      operationId: AppUser.confirm
+      parameters:
+        - name: uid
+          in: query
+          required: true
+          type: string
+        - name: token
+          in: query
+          required: true
+          type: string
+        - name: redirect
+          in: query
+          required: false
+          type: string
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  /AppUsers/reset:
+    post:
+      tags:
+        - AppUser
+      summary: Reset password for a user with email.
+      operationId: AppUser.resetPassword
+      parameters:
+        - name: options
+          in: body
+          required: true
+          schema:
+            type: object
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  /AppUsers/change-password:
+    post:
+      tags:
+        - AppUser
+      summary: "Change a user's password."
+      operationId: AppUser.changePassword
+      parameters:
+        - name: oldPassword
+          in: formData
+          required: true
+          type: string
+        - name: newPassword
+          in: formData
+          required: true
+          type: string
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  /AppUsers/reset-password:
+    post:
+      tags:
+        - AppUser
+      summary: "Reset user's password via a password-reset token."
+      operationId: AppUser.setPassword
+      parameters:
+        - name: newPassword
+          in: formData
+          required: true
+          type: string
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/AppUsers/{id}/jobPosts/{nk}/owner':
+    get:
+      tags:
+        - AppUser
+      summary: Fetches belongsTo relation owner.
+      operationId: AppUser.prototype.__get__jobPosts__owner
+      parameters:
+        - name: nk
+          in: path
+          description: Foreign key for jobPosts.
+          required: true
+          type: string
+          format: JSON
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+        - name: id
+          in: path
+          description: AppUser id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AppUser'
+      deprecated: false
+  '/AppUsers/{id}/messages/{nk}/from':
+    get:
+      tags:
+        - AppUser
+      summary: Fetches belongsTo relation from.
+      operationId: AppUser.prototype.__get__messages__from
+      parameters:
+        - name: nk
+          in: path
+          description: Foreign key for messages.
+          required: true
+          type: string
+          format: JSON
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+        - name: id
+          in: path
+          description: AppUser id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AppUser'
+      deprecated: false
+  '/AppUsers/{id}/messages/{nk}/job':
+    get:
+      tags:
+        - AppUser
+      summary: Fetches belongsTo relation job.
+      operationId: AppUser.prototype.__get__messages__job
+      parameters:
+        - name: nk
+          in: path
+          description: Foreign key for messages.
+          required: true
+          type: string
+          format: JSON
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+        - name: id
+          in: path
+          description: AppUser id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Job'
+      deprecated: false
+  '/Messages/{id}/from':
+    get:
+      tags:
+        - Message
+      summary: Fetches belongsTo relation from.
+      operationId: Message.prototype.__get__from
+      parameters:
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AppUser'
+      deprecated: false
+  '/Messages/{id}/job':
+    get:
+      tags:
+        - Message
+      summary: Fetches belongsTo relation job.
+      operationId: Message.prototype.__get__job
+      parameters:
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Job'
+      deprecated: false
+  /Messages:
+    post:
+      tags:
+        - Message
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: Message.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Message'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+    patch:
+      tags:
+        - Message
+      summary: Patch an existing model instance or insert a new one into the data source.
+      operationId: Message.patchOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Message'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+    put:
+      tags:
+        - Message
+      summary: Replace an existing model instance or insert a new one into the data source.
+      operationId: Message.replaceOrCreate__put_Messages
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Message'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+    get:
+      tags:
+        - Message
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: Message.find
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit - must be a JSON-encoded string ({"something":"value"})'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Message'
+      deprecated: false
+  /Messages/replaceOrCreate:
+    post:
+      tags:
+        - Message
+      summary: Replace an existing model instance or insert a new one into the data source.
+      operationId: Message.replaceOrCreate__post_Messages_replaceOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Message'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+  /Messages/upsertWithWhere:
+    post:
+      tags:
+        - Message
+      summary: Update an existing model instance or insert a new one into the data source based on the where criteria.
+      operationId: Message.upsertWithWhere
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/Message'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+  '/Messages/{id}/exists':
+    get:
+      tags:
+        - Message
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'Message.exists__get_Messages_{id}_exists'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+  '/Messages/{id}':
+    head:
+      tags:
+        - Message
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'Message.exists__head_Messages_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+    get:
+      tags:
+        - Message
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: Message.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: 'Filter defining fields and include - must be a JSON-encoded string ({"something":"value"})'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+    put:
+      tags:
+        - Message
+      summary: Replace attributes for a model instance and persist it into the data source.
+      operationId: 'Message.replaceById__put_Messages_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Message'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+    delete:
+      tags:
+        - Message
+      summary: 'Delete a model instance by {{id}} from the data source.'
+      operationId: Message.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    patch:
+      tags:
+        - Message
+      summary: Patch attributes for a model instance and persist it into the data source.
+      operationId: Message.prototype.patchAttributes
+      parameters:
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/Message'
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+  '/Messages/{id}/replace':
+    post:
+      tags:
+        - Message
+      summary: Replace attributes for a model instance and persist it into the data source.
+      operationId: 'Message.replaceById__post_Messages_{id}_replace'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Message'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+  /Messages/findOne:
+    get:
+      tags:
+        - Message
+      summary: Find first instance of the model matched by filter from the data source.
+      operationId: Message.findOne
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit - must be a JSON-encoded string ({"something":"value"})'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+  /Messages/update:
+    post:
+      tags:
+        - Message
+      summary: 'Update instances of the model matched by {{where}} from the data source.'
+      operationId: Message.updateAll
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/Message'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: Information related to the outcome of the operation
+            type: object
+            properties:
+              count:
+                description: The number of instances updated
+                type: number
+                format: double
+      deprecated: false
+  /Messages/count:
+    get:
+      tags:
+        - Message
+      summary: Count instances of the model matched by where from the data source.
+      operationId: Message.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  '/Messages/{id}/job/owner':
+    get:
+      tags:
+        - Message
+      summary: Fetches belongsTo relation owner.
+      operationId: Message.prototype.__get__job__owner
+      parameters:
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AppUser'
+      deprecated: false
+  '/Messages/{id}/job/messages/{fk}':
+    get:
+      tags:
+        - Message
+      summary: Find a related item by id for messages.
+      operationId: Message.prototype.__findById__job__messages
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for messages
+          required: true
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+    delete:
+      tags:
+        - Message
+      summary: Delete a related item by id for messages.
+      operationId: Message.prototype.__destroyById__job__messages
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for messages
+          required: true
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - Message
+      summary: Update a related item by id for messages.
+      operationId: Message.prototype.__updateById__job__messages
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for messages
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Message'
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+  '/Messages/{id}/job/messages':
+    get:
+      tags:
+        - Message
+      summary: Queries messages of Job.
+      operationId: Message.prototype.__get__job__messages
+      parameters:
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Message'
+      deprecated: false
+    post:
+      tags:
+        - Message
+      summary: Creates a new instance in messages of this model.
+      operationId: Message.prototype.__create__job__messages
+      parameters:
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Message'
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+    delete:
+      tags:
+        - Message
+      summary: Deletes all messages of this model.
+      operationId: Message.prototype.__delete__job__messages
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Messages/{id}/job/messages/count':
+    get:
+      tags:
+        - Message
+      summary: Counts messages of Job.
+      operationId: Message.prototype.__count__job__messages
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  '/Messages/{id}/from/accessTokens/{fk}':
+    get:
+      tags:
+        - Message
+      summary: Find a related item by id for accessTokens.
+      operationId: Message.prototype.__findById__from__accessTokens
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AccessToken'
+      deprecated: false
+    delete:
+      tags:
+        - Message
+      summary: Delete a related item by id for accessTokens.
+      operationId: Message.prototype.__destroyById__from__accessTokens
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - Message
+      summary: Update a related item by id for accessTokens.
+      operationId: Message.prototype.__updateById__from__accessTokens
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/AccessToken'
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AccessToken'
+      deprecated: false
+  '/Messages/{id}/from/jobPosts/{fk}':
+    get:
+      tags:
+        - Message
+      summary: Find a related item by id for jobPosts.
+      operationId: Message.prototype.__findById__from__jobPosts
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for jobPosts
+          required: true
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Job'
+      deprecated: false
+    delete:
+      tags:
+        - Message
+      summary: Delete a related item by id for jobPosts.
+      operationId: Message.prototype.__destroyById__from__jobPosts
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for jobPosts
+          required: true
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - Message
+      summary: Update a related item by id for jobPosts.
+      operationId: Message.prototype.__updateById__from__jobPosts
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for jobPosts
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Job'
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Job'
+      deprecated: false
+  '/Messages/{id}/from/messages/{fk}':
+    get:
+      tags:
+        - Message
+      summary: Find a related item by id for messages.
+      operationId: Message.prototype.__findById__from__messages
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for messages
+          required: true
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+    delete:
+      tags:
+        - Message
+      summary: Delete a related item by id for messages.
+      operationId: Message.prototype.__destroyById__from__messages
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for messages
+          required: true
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - Message
+      summary: Update a related item by id for messages.
+      operationId: Message.prototype.__updateById__from__messages
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for messages
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Message'
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+  '/Messages/{id}/from/accessTokens':
+    get:
+      tags:
+        - Message
+      summary: Queries accessTokens of AppUser.
+      operationId: Message.prototype.__get__from__accessTokens
+      parameters:
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AccessToken'
+      deprecated: false
+    post:
+      tags:
+        - Message
+      summary: Creates a new instance in accessTokens of this model.
+      operationId: Message.prototype.__create__from__accessTokens
+      parameters:
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/AccessToken'
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AccessToken'
+      deprecated: false
+    delete:
+      tags:
+        - Message
+      summary: Deletes all accessTokens of this model.
+      operationId: Message.prototype.__delete__from__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Messages/{id}/from/accessTokens/count':
+    get:
+      tags:
+        - Message
+      summary: Counts accessTokens of AppUser.
+      operationId: Message.prototype.__count__from__accessTokens
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  '/Messages/{id}/from/jobPosts':
+    get:
+      tags:
+        - Message
+      summary: Queries jobPosts of AppUser.
+      operationId: Message.prototype.__get__from__jobPosts
+      parameters:
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Job'
+      deprecated: false
+    post:
+      tags:
+        - Message
+      summary: Creates a new instance in jobPosts of this model.
+      operationId: Message.prototype.__create__from__jobPosts
+      parameters:
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Job'
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Job'
+      deprecated: false
+    delete:
+      tags:
+        - Message
+      summary: Deletes all jobPosts of this model.
+      operationId: Message.prototype.__delete__from__jobPosts
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Messages/{id}/from/jobPosts/count':
+    get:
+      tags:
+        - Message
+      summary: Counts jobPosts of AppUser.
+      operationId: Message.prototype.__count__from__jobPosts
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  '/Messages/{id}/from/messages':
+    get:
+      tags:
+        - Message
+      summary: Queries messages of AppUser.
+      operationId: Message.prototype.__get__from__messages
+      parameters:
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Message'
+      deprecated: false
+    post:
+      tags:
+        - Message
+      summary: Creates a new instance in messages of this model.
+      operationId: Message.prototype.__create__from__messages
+      parameters:
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Message'
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+    delete:
+      tags:
+        - Message
+      summary: Deletes all messages of this model.
+      operationId: Message.prototype.__delete__from__messages
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Messages/{id}/from/messages/count':
+    get:
+      tags:
+        - Message
+      summary: Counts messages of AppUser.
+      operationId: Message.prototype.__count__from__messages
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+definitions:
+  x-any:
+    properties: {}
+  AppUser:
+    properties:
+      firstname:
+        type: string
+      lastname:
+        type: string
+      emailVerified:
+        default: false
+        type: boolean
+      photo:
+        type: string
+      realm:
+        type: string
+      username:
+        type: string
+      email:
+        type: string
+      id:
+        $ref: '#/definitions/ObjectID'
+    required:
+      - firstname
+      - lastname
+      - email
+    additionalProperties: false
+  Message:
+    properties:
+      content:
+        type: string
+      createdAt:
+        type: string
+        format: date-time
+      id:
+        $ref: '#/definitions/ObjectID'
+      fromId:
+        $ref: '#/definitions/ObjectID'
+      jobId:
+        $ref: '#/definitions/ObjectID'
+      appUserId:
+        $ref: '#/definitions/ObjectID'
+    required:
+      - content
+      - createdAt
+    additionalProperties: false
+  Job:
+    properties:
+      title:
+        type: string
+      description:
+        type: string
+      pay:
+        default: 0
+        type: number
+        format: double
+      location:
+        type: string
+      dateCreated:
+        type: string
+        format: date-time
+      id:
+        $ref: '#/definitions/ObjectID'
+      appUserId:
+        $ref: '#/definitions/ObjectID'
+      ownerId:
+        $ref: '#/definitions/ObjectID'
+    required:
+      - title
+      - location
+    additionalProperties: false
+  AccessToken:
+    properties:
+      id:
+        type: string
+      ttl:
+        default: 1209600
+        description: time to live in seconds (2 weeks by default)
+        type: number
+        format: double
+      scopes:
+        description: Array of scopes granted to this access token.
+        type: array
+        items:
+          type: string
+      created:
+        type: string
+        format: date-time
+      userId:
+        $ref: '#/definitions/ObjectID'
+    required:
+      - id
+    additionalProperties: false
+  ObjectID:
+    type: string
+    pattern: "^[a-fA-F\\d]{24}$"
+basePath: /api
+swagger: '2.0'
+info:
+  x-ibm-name: joblings
+  version: 1.0.0
+  title: joblings
+schemes:
+  - https
+host: $(catalog.host)
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  clientIdHeader:
+    type: apiKey
+    in: header
+    name: X-IBM-Client-Id
+  clientSecretHeader:
+    in: header
+    name: X-IBM-Client-Secret
+    type: apiKey
+security:
+  - clientIdHeader: []
+    clientSecretHeader: []
+x-ibm-configuration:
+  testable: true
+  enforced: true
+  cors:
+    enabled: true
+  catalogs:
+    apic-dev:
+      properties:
+        runtime-url: $(TARGET_URL)
+    sb:
+      properties:
+        runtime-url: 'http://localhost:4001'
+  assembly:
+    execute:
+      - invoke:
+          target-url: $(runtime-url)$(request.path)$(request.search)

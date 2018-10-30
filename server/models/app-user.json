@@ -6,6 +6,7 @@
   "options": {
     "validateUpsert": true
   },
+  "hidden": [],
   "properties": {
     "firstname": {
       "type": "string",
@@ -30,7 +31,6 @@
       "type": "string"
     }
   },
-  "hidden": [],
   "validations": [],
   "relations": {
     "accessTokens": {
@@ -44,6 +44,14 @@
     "jobPosts": {
       "type": "hasMany",
       "model": "Job",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "messages": {
+      "type": "hasMany",
+      "model": "Message",
       "foreignKey": "",
       "options": {
         "nestRemoting": true
